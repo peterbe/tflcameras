@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load django_static %}
+{% block extrahead %}
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+{% endblock %}
+
+{% block content %}
+<div id="map_canvas" style="width:100%; height:100%"></div>
+<div id="loading" style="display:none">
+<p>
+<strong>Loading all traffic cameras...</strong><br/>
+<img src="{% staticfile "/img/loading.gif" %}" alt="... ."/>
+</p>
+</div>
+{% endblock %}
+
+{% block extrajs %}
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&region=GB"></script>
+<script type="text/javascript" src="{% slimfile "/js/cameras.js" %}"></script>
+{% endblock %}
