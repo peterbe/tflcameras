@@ -1,7 +1,10 @@
 from pprint import pprint
 from utils.render_decorator import render
 from django.core.cache import cache
-ONE_HOUR = 60 * 60
+
+ONE_MINUTE = 60
+
+ONE_HOUR = ONE_HOUR ** 2
 
 
 @render('show_map.html')
@@ -18,7 +21,7 @@ def load_feed():
     cameras = cache.get(cache_key)
     if cameras is None:
         cameras = list(_load_feed())
-        cache.set(cache_key, cameras, 3 * ONE_HOUR)
+        cache.set(cache_key, cameras, ONE_MINUTE * 2)
     return cameras
 
 def _load_feed():
