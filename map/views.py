@@ -4,7 +4,7 @@ from django.core.cache import cache
 
 ONE_MINUTE = 60
 
-ONE_HOUR = ONE_HOUR ** 2
+ONE_HOUR = ONE_MINUTE ** 2
 
 
 @render('show_map.html')
